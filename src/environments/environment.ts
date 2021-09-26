@@ -5,13 +5,14 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: "xxxxx-xxxxx-xxxxx-xxxxx-xxxxx-",
-    authDomain: "xxx-xxxxx",
-    databaseURL: "https://xxx-xxxx-xxxx.firebaseio.com",
-    projectId: "fir-demo-1234",
-    storageBucket: "fir-demo-10290.appspot.com",
-    messagingSenderId: "123456789",
-    appId: "x:1920292929:xxxx:xxxxxxxxxx"
+    apiKey: 'AIzaSyAOc0Lu8bdR9YF2Le4J54mSi01engd3GNA',
+    authDomain: 'edengym-7b791.firebaseapp.com',
+    databaseURL: 'https://edengym-7b791-default-rtdb.firebaseio.com',
+    projectId: 'edengym-7b791',
+    storageBucket: 'edengym-7b791.appspot.com',
+    messagingSenderId: '88370238211',
+    appId: '1:88370238211:web:20fa2db910aa12d4d68f36',
+    measurementId: 'G-PP3K05Q9TY'
   }
 };
 /*
