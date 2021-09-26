@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "edengym-7b791": {
+      "hosting": {
+        "app": [
+          "edengym-7b791"
+        ]
+      }
+    }
+  }
+}
