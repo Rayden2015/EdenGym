@@ -82,7 +82,7 @@ export class AuthenticationService {
     return this.ngFireAuth.signInWithPopup(provider)
     .then((result) => {
        this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
+          this.router.navigate(['/tabs/tabs/']);
         });
       this.SetUserData(result.user);
     }).catch((error) => {
@@ -111,6 +111,10 @@ export class AuthenticationService {
       localStorage.removeItem('user');
       this.router.navigate(['login']);
     });
+  }
+
+  getAuthId(){
+    return this.ngFireAuth.authState.subscribe()
   }
 
 }
