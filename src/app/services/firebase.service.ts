@@ -9,17 +9,19 @@ export class FirebaseService {
 
   collectionName = 'profiles';
   user: any;
+  userId: string;
 
   constructor(
     private firestore: AngularFirestore
-  ) { }
+  ) {
+    this.user = JSON.parse(localStorage.getItem('user'));
+    this.userId = this.user.uid;
+    console.log('User', this.userId );
+    //console.log('Userid',userId);
+  }
 
   createProfile(record){
-    this.user = JSON.parse(localStorage.getItem('user'));
-    const userId = this.user.uid;
-    console.log('User', userId );
-    //console.log('Userid',userId);
-    this.firestore.doc(`profiles/${userId}`).set(record).then(
+    this.firestore.doc(`profiles/${this.userId}`).set(record).then(
       () => console.log('Profile Updated Succesfully')
     );
   }
@@ -28,8 +30,10 @@ export class FirebaseService {
     return this.firestore.collection(this.collectionName).snapshotChanges();
   }
 
+
+
   readLoggedInProfile(uid){
-    return this.firestore.collection(this.collectionName).doc(uid);
+    return this.firestore.collection(this.collectionName).doc(uid).valueChanges();
   }
 
   updateProfile(recordID, record) {

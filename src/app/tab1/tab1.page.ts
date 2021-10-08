@@ -5,6 +5,7 @@ import { FirebaseService } from '../services/firebase.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 
+
 interface ProfileData {
   surname: string;
   firstname: string;
@@ -40,11 +41,10 @@ export class Tab1Page {
 
 
   ngOnInit() {
-   this.user = localStorage.getItem('user');
-   console.dir('UID', this.user);
 
+    this.readLoginProfile();
     this.firebaseService.readProfiles().subscribe(data => {
-
+      console.dir(data);
       this.profileList = data.map(e => {
         return {
           id: e.payload.doc.id,
@@ -59,7 +59,27 @@ export class Tab1Page {
     });
   }
 
-  createProfile() {
+  readLoginProfile(){
+    this.user = JSON.parse(localStorage.getItem('user'));
+    const userId = this.user.uid;
+    console.log('User id', userId );
+		this.firebaseService.readLoggedInProfile(userId).subscribe(data => {
+      console.log('Login Profile :',data);
+      this.profileData.company = data["company"];
+      this.profileData.firstname = data["firstname"];
+      this.profileData.surname = data["surname"];
+      this.profileData.othernames = data["othernames"];
+      this.profileData.date_of_birth = data["date_of_birth"];
+      this.profileData.mobile_number = data["mobile_number"];
+      this.profileData.whatsapp_number = data["whatsapp_number"];
+      this.profileData.email_address = data["email_address"];
+      this.profileData.profession = data["profession"];
+      this.profileData.trained_in_gym = data["trained_in_gym"];
+      this.profileData.fitness_goal = data["fitness_goal"];
+  });
+  }
+
+createProfile() {
     const userid = localStorage.getItem(this.user.id);
     console.log(userid);
     this.firebaseService.createProfile(this.profileData);
