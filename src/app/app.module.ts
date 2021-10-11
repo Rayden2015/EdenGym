@@ -15,6 +15,7 @@ import { environment } from 'src/environments/environment';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicStorageModule } from '@ionic/storage-angular';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { IonicStorageModule } from '@ionic/storage-angular';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    CommonModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, AngularFirestoreModule],
   bootstrap: [AppComponent],

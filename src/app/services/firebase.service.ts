@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFirestore, CollectionReference } from '@angular/fire/compat/firestore';
+//import { CollectionReference } from '@google-cloud/firestore';
 
 
 @Injectable({
@@ -20,7 +21,7 @@ export class FirebaseService {
     //console.log('Userid',userId);
   }
 
-  createProfile(record){
+  updateProfile(record){
     this.firestore.doc(`profiles/${this.userId}`).set(record).then(
       () => console.log('Profile Updated Succesfully')
     );
@@ -36,11 +37,30 @@ export class FirebaseService {
     return this.firestore.collection(this.collectionName).doc(uid).valueChanges();
   }
 
-  updateProfile(recordID, record) {
-    this.firestore.doc(this.collectionName + '/' + recordID).update(record);
-  }
+  // updateProfile(recordID, record) {
+  //   this.firestore.doc(this.collectionName + '/' + recordID).update(record);
+  // }
 
   deleteProfile(recordId) {
     this.firestore.doc(this.collectionName + '/' + recordId).delete();
+  }
+
+  loadWorkoutsList(){
+    return this.firestore.collection('listOfWorkouts').valueChanges();
+  }
+
+  addWorkoutLog(workoutLog){
+    workoutLog.userId = this.userId;
+    console.log('WorkoutLog', workoutLog);
+    return this.firestore.collection(`WorkoutLogs`).add(workoutLog).then(
+      () => console.log('WorkoutLog added succesfully')
+    ).catch(
+      (e) => console.error(e.message)
+    );
+  }
+
+  loadWorkoutLogs(){
+    const workoutsRef = CollectionReference()
+    return this.firestore.collection('WorkoutLogs').where('userId', '==', this.userId).val
   }
 }

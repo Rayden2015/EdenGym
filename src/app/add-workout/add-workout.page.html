@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>addWorkout</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Date</ion-label>
+      <ion-datetime [(ngModel)]="this.workoutLog.date"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Start Time</ion-label>
+      <ion-datetime [(ngModel)]="this.workoutLog.startTime"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Workout</ion-label>
+      <ion-input [(ngModel)]="this.workoutLog.workout"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Repitions</ion-label>
+      <ion-input type="number" [(ngModel)]="this.workoutLog.repititions"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Sets</ion-label>
+      <ion-input type="number" [(ngModel)]="this.workoutLog.sets"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-button (click)="addWorkoutLog()">Save</ion-button>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+    <ion-fab-button (click)="closeModal()" color="danger">
+      <ion-icon name="close"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

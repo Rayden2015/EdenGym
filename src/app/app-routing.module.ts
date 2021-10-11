@@ -24,8 +24,12 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: '/tabs/tabs/tab2',
     pathMatch: 'full'
+  },
+  {
+    path: 'add-workout',
+    loadChildren: () => import('./add-workout/add-workout.module').then( m => m.AddWorkoutPageModule)
   }
 ];
 @NgModule({

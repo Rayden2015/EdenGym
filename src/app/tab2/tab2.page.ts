@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { AddWorkoutPage } from '../add-workout/add-workout.page';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +9,19 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  constructor(public modalController: ModalController) {}
 
-}
+  async addWorkoutLogModal(){
+    const modal = await this.modalController.create({
+      component: AddWorkoutPage,
+      cssClass: 'my-custom-class'
+    });
+    return await modal.present();
+  }
+
+  closeModal(){
+    this.modalController.dismiss();
+  }
+  }
+
+

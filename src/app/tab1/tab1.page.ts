@@ -3,6 +3,8 @@
 import { Component } from '@angular/core';
 import { FirebaseService } from '../services/firebase.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { UtilitiesService } from '../shared/utilities.service';
+import { LoadingController } from '@ionic/angular';
 
 
 
@@ -34,35 +36,32 @@ export class Tab1Page {
 
   constructor(
     private firebaseService: FirebaseService,
-    public fb: FormBuilder
+    public utility: UtilitiesService,
+    private loadingController : LoadingController
   ) {
     this.profileData = {} as ProfileData;
   }
 
 
   ngOnInit() {
-
     this.readLoginProfile();
-    this.firebaseService.readProfiles().subscribe(data => {
-      console.dir(data);
-      this.profileList = data.map(e => {
-        return {
-          id: e.payload.doc.id,
-          isEdit: false,
-          surname: e.payload.doc.data()['surname'],
-          Age: e.payload.doc.data()['Age'],
-          Address: e.payload.doc.data()['Address'],
-        };
-      });
-      //console.log(this.profileList);
-
-    });
   }
 
-  readLoginProfile(){
+  async readLoginProfile(){
+    //Loader
+    const loading = await this.loadingController.create({
+      cssClass: 'my-custom-class',
+      message: 'Loading Profile'
+      // duration: 2000
+    });
+    await loading.present();
+
+    //Getting User uid from Local Storage
     this.user = JSON.parse(localStorage.getItem('user'));
     const userId = this.user.uid;
     console.log('User id', userId );
+
+    //Loading Login Profile from Firebase
 		this.firebaseService.readLoggedInProfile(userId).subscribe(data => {
       console.log('Login Profile :',data);
       this.profileData.company = data["company"];
@@ -76,39 +75,28 @@ export class Tab1Page {
       this.profileData.profession = data["profession"];
       this.profileData.trained_in_gym = data["trained_in_gym"];
       this.profileData.fitness_goal = data["fitness_goal"];
+
+      //Dismissing Loader
+      loading.dismiss();
+      console.log('Loading dismissed!');
   });
+
+
+
   }
 
-createProfile() {
+updateProfile() {
     const userid = localStorage.getItem(this.user.id);
     console.log(userid);
-    this.firebaseService.createProfile(this.profileData);
-    // .then(resp => {
-    //   this.profileForm.reset();
-    // })
-    //   .catch(error => {
-    //     console.log(error);
-    //   });
+
+    try {
+      this.firebaseService.updateProfile(this.profileData);
+      this.utility.presentAlert('Proifle', 'Profile Updated Successfully');
+    }catch(e){
+      this.utility.presentAlert('Profile', e.message);
+    }
+
   }
 
-  removeRecord(rowID) {
-    this.firebaseService.deleteProfile(rowID);
-  }
-
-  editRecord(record) {
-    record.isEdit = true;
-    record.EditName = record.Name;
-    record.EditAge = record.Age;
-    record.EditAddress = record.Address;
-  }
-
-  updateRecord(recordRow) {
-    let record = {};
-    record['Name'] = recordRow.EditName;
-    record['Age'] = recordRow.EditAge;
-    record['Address'] = recordRow.EditAddress;
-    this.firebaseService.updateProfile(recordRow.id, record);
-    recordRow.isEdit = false;
-  }
 
 }
