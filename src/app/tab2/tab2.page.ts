@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { ModalController } from '@ionic/angular';
-import { AddWorkoutPage } from '../add-workout/add-workout.page';
+import { Router } from '@angular/router';
+import { FirebaseService } from '../services/firebase.service';
+import { WorkoutLog } from '../shared/workoutLog';
 
 @Component({
   selector: 'app-tab2',
@@ -9,19 +10,30 @@ import { AddWorkoutPage } from '../add-workout/add-workout.page';
 })
 export class Tab2Page {
 
-  constructor(public modalController: ModalController) {}
+  workoutLogs: any;
+
+  constructor(public router: Router, private firebase: FirebaseService) {
+    this.workoutLogs = {} as WorkoutLog;
+  }
+
+  ngOnInit() {
+    this.loadWorkoutLogs();
+  }
 
   async addWorkoutLogModal(){
-    const modal = await this.modalController.create({
-      component: AddWorkoutPage,
-      cssClass: 'my-custom-class'
-    });
-    return await modal.present();
+   this.router.navigateByUrl('dashboard');
   }
 
   closeModal(){
-    this.modalController.dismiss();
+    //this.modalController.dismiss();
   }
+
+  loadWorkoutLogs(){
+    this.firebase.loadWorkoutLogs().subscribe((data) =>{
+      console.log('WorkoutLog',data);
+      this.workoutLogs = data;
+    });
   }
+}
 
 

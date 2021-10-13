@@ -26,7 +26,7 @@ export class LoginPage implements OnInit {
     this.authService.SignIn(email.value, password.value)
       .then((res) => {
         if(this.authService.isEmailVerified) {
-          this.router.navigateByUrl('tabs/tabs/tab1');
+          this.router.navigateByUrl('/tabs/tabs/tab1');
         } else {
           this.utility.presentAlert('Email Verification', 'Email is not verified');
           return false;

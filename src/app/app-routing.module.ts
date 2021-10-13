@@ -24,13 +24,10 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/tabs/tabs/tab2',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
-  {
-    path: 'add-workout',
-    loadChildren: () => import('./add-workout/add-workout.module').then( m => m.AddWorkoutPageModule)
-  }
+
 ];
 @NgModule({
   imports: [

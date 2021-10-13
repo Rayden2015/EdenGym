@@ -2,7 +2,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Component } from '@angular/core';
 import { FirebaseService } from '../services/firebase.service';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { UtilitiesService } from '../shared/utilities.service';
 import { LoadingController } from '@ionic/angular';
 
@@ -37,7 +36,7 @@ export class Tab1Page {
   constructor(
     private firebaseService: FirebaseService,
     public utility: UtilitiesService,
-    private loadingController : LoadingController
+    private loadingController: LoadingController
   ) {
     this.profileData = {} as ProfileData;
   }

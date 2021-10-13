@@ -1,9 +1,42 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>dashboard</ion-title>
+    <ion-title>addWorkout</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-button type="submit" (click)="authService.SignOut()" expand="block">Logout</ion-button>
+  <ion-list>
+    <ion-item>
+      <ion-label>Date</ion-label>
+      <ion-datetime [(ngModel)]="this.workoutLog.date" [value]="this.workoutLog.date"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Start Time</ion-label>
+      <ion-datetime [(ngModel)]="this.workoutLog.startTime" display-format="HH:mm:ss" picker-format="HH:mm" ></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Workout</ion-label>
+      <ion-input type="text" [(ngModel)]="this.workoutLog.workout" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Repitions</ion-label>
+      <ion-input type="number" [(ngModel)]="this.workoutLog.repititions"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Sets</ion-label>
+      <ion-input type="number" [(ngModel)]="this.workoutLog.sets"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>EndTime</ion-label>
+      <ion-datetime [(ngModel)]="this.workoutLog.endTime" display-format="HH:mm:ss" picker-format="HH:mm"></ion-datetime>
+    </ion-item>
+  </ion-list>
+
+  <ion-button (click)="addWorkoutLog()">Save</ion-button>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+    <ion-fab-button [routerLink]="['/tabs/tabs/tab2']" color="danger">
+      <ion-icon name="close"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

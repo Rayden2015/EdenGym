@@ -13,22 +13,37 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-card>
+
+  <ion-card *ngFor="let workoutLog of this.workoutLogs">
     <ion-card-header>
-      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-      <ion-card-title>Card Title</ion-card-title>
+      <ion-card-subtitle><ion-icon name="calendar-outline"></ion-icon>{{this.workoutLog.date | date}}</ion-card-subtitle>
+      <ion-card-title><ion-icon name="barbell-outline"></ion-icon>{{this.workoutLog.workout}}</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
-      Keep close to Nature's heart... and break clear away, once in awhile,
-      and climb a mountain or spend a week in the woods. Wash your spirit clean.
+      <ion-item>
+        <ion-label>Start Time</ion-label>
+        <ion-datetime [(ngModel)]="this.workoutLog.startTime" displayFormat="HH:mm:ss" readonly></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Repitions</ion-label>
+        <ion-input type="number" [(ngModel)]="this.workoutLog.repititions"  readonly></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Sets</ion-label>
+        <ion-input type="number" [(ngModel)]="this.workoutLog.sets" readonly></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>End Time</ion-label>
+        <ion-datetime [(ngModel)]="this.workoutLog.endTime"  displayFormat="HH:mm:ss" readonly></ion-datetime>
+      </ion-item>
     </ion-card-content>
   </ion-card>
 
-  
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="addWorkoutLogModal();">
+
+  <ion-fab vertical="center" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['/dashboard']">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
