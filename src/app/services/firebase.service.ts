@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, CollectionReference } from '@angular/fire/compat/firestore';
-//import { CollectionReference } from '@google-cloud/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 
 @Injectable({
@@ -61,5 +60,9 @@ export class FirebaseService {
 
   loadWorkoutLogs(){
     return this.firestore.collection('WorkoutLogs').valueChanges();
+  }
+
+  loadWorkoutNames(){
+    return this.firestore.collection('workoutNames').valueChanges();
   }
 }

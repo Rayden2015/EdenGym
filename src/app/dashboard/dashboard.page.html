@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>addWorkout</ion-title>
+    <ion-title>Log Workout</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -16,7 +16,13 @@
     </ion-item>
     <ion-item>
       <ion-label>Workout</ion-label>
-      <ion-input type="text" [(ngModel)]="this.workoutLog.workout" ></ion-input>
+      <ion-select [(ngModel)]="this.workoutLog.workout">
+        <ion-select-option *ngFor="let workoutName of this.workoutNames"  value="{{this.workoutName.name}}">{{this.workoutName.name}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Weight</ion-label>
+      <ion-input type="text" [(ngModel)]="this.workoutLog.weight" ></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Repitions</ion-label>
@@ -29,6 +35,10 @@
     <ion-item>
       <ion-label>EndTime</ion-label>
       <ion-datetime [(ngModel)]="this.workoutLog.endTime" display-format="HH:mm:ss" picker-format="HH:mm"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Instructor</ion-label>
+      <ion-input type="text" [(ngModel)]="this.workoutLog.instructor" ></ion-input>
     </ion-item>
   </ion-list>
 

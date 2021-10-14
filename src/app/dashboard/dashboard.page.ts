@@ -2,18 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { FirebaseService } from '../services/firebase.service';
-//import { WorkoutLog } from '../shared/workoutLog';
-
-
-interface WorkoutLog{
-  date: string;
-  startTime: string;
-  workout: string;
-  repititions: number;
-  sets: number;
-  endTime: string;
-  userId: string;
-}
+import { WorkoutLog } from '../shared/workoutLog';
 
 
 @Component({
@@ -24,6 +13,7 @@ interface WorkoutLog{
 
 export class DashboardPage implements OnInit {
   workoutLog: WorkoutLog;
+  workoutNames: any;
   test = 'Test Mic';
 
   constructor(public modalController: ModalController, private firebase: FirebaseService, private router: Router) {
@@ -34,6 +24,7 @@ export class DashboardPage implements OnInit {
   ngOnInit() {
 
     console.log('ngOnInit', this.workoutLog);
+    this.loadWorkoutNames();
     //this.workoutLog.date = Date.now().toString();
   }
 
@@ -49,6 +40,13 @@ export class DashboardPage implements OnInit {
       console.log('AddWotkoutPage | addworkoutLog() | WorkoutLog', this.workoutLog);
       this.firebase.addWorkoutLog(this.workoutLog);
       this.router.navigateByUrl('/tabs/tabs/tab2');
+  }
+
+  loadWorkoutNames(){
+    this.firebase.loadWorkoutNames().subscribe((data) => {
+      console.log('WorkoutNames', data);
+      this.workoutNames = data;
+    });
   }
 
 }

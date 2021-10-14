@@ -26,6 +26,10 @@
         <ion-datetime [(ngModel)]="this.workoutLog.startTime" displayFormat="HH:mm:ss" readonly></ion-datetime>
       </ion-item>
       <ion-item>
+        <ion-label>Weight</ion-label>
+        <ion-input type="text" [(ngModel)]="this.workoutLog.weight" ></ion-input>
+      </ion-item>
+      <ion-item>
         <ion-label>Repitions</ion-label>
         <ion-input type="number" [(ngModel)]="this.workoutLog.repititions"  readonly></ion-input>
       </ion-item>
@@ -36,6 +40,10 @@
       <ion-item>
         <ion-label>End Time</ion-label>
         <ion-datetime [(ngModel)]="this.workoutLog.endTime"  displayFormat="HH:mm:ss" readonly></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Instructor</ion-label>
+        <ion-input type="text" [(ngModel)]="this.workoutLog.instructor" ></ion-input>
       </ion-item>
     </ion-card-content>
   </ion-card>
