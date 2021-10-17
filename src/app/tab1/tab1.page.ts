@@ -4,6 +4,8 @@ import { Component } from '@angular/core';
 import { FirebaseService } from '../services/firebase.service';
 import { UtilitiesService } from '../shared/utilities.service';
 import { LoadingController } from '@ionic/angular';
+import { AuthenticationService } from '../shared/authentication.service';
+import { Router } from '@angular/router';
 
 
 
@@ -36,7 +38,9 @@ export class Tab1Page {
   constructor(
     private firebaseService: FirebaseService,
     public utility: UtilitiesService,
-    private loadingController: LoadingController
+    private loadingController: LoadingController,
+    private auth: AuthenticationService,
+    private router: Router
   ) {
     this.profileData = {} as ProfileData;
   }
@@ -74,11 +78,10 @@ export class Tab1Page {
       this.profileData.profession = data["profession"];
       this.profileData.trained_in_gym = data["trained_in_gym"];
       this.profileData.fitness_goal = data["fitness_goal"];
-
-      //Dismissing Loader
-      loading.dismiss();
-      console.log('Loading dismissed!');
   });
+
+  loading.dismiss();
+  console.log('Loading dismissed!');
 
 
 
@@ -97,5 +100,9 @@ updateProfile() {
 
   }
 
+  logout(){
+    this.auth.SignOut();
+    this.router.navigateByUrl('login');
+  }
 
 }

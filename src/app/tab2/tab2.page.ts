@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FirebaseService } from '../services/firebase.service';
+import { AuthenticationService } from '../shared/authentication.service';
 import { WorkoutLog } from '../shared/workoutLog';
 
 @Component({
@@ -12,7 +13,7 @@ export class Tab2Page {
 
   workoutLogs: any;
 
-  constructor(public router: Router, private firebase: FirebaseService) {
+  constructor(public router: Router, private firebase: FirebaseService, private auth: AuthenticationService) {
     this.workoutLogs = {} as WorkoutLog;
   }
 
@@ -34,6 +35,8 @@ export class Tab2Page {
       this.workoutLogs = data;
     });
   }
+
+  
 }
 
 

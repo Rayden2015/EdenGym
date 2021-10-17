@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import { FirebaseService } from '../services/firebase.service';
 import { WorkoutLog } from '../shared/workoutLog';
 
@@ -14,7 +14,6 @@ import { WorkoutLog } from '../shared/workoutLog';
 export class DashboardPage implements OnInit {
   workoutLog: WorkoutLog;
   workoutNames: any;
-  test = 'Test Mic';
 
   constructor(public modalController: ModalController, private firebase: FirebaseService, private router: Router) {
        //workout:'Pilatest Tets'
@@ -22,15 +21,10 @@ export class DashboardPage implements OnInit {
   }
 
   ngOnInit() {
-
-    console.log('ngOnInit', this.workoutLog);
     this.loadWorkoutNames();
     //this.workoutLog.date = Date.now().toString();
   }
 
-  whatsThere(){
-    console.log('What sis there' , this.workoutLog);
-  }
 
   closeModal(){
     this.modalController.dismiss();
@@ -39,7 +33,7 @@ export class DashboardPage implements OnInit {
   addWorkoutLog(){
       console.log('AddWotkoutPage | addworkoutLog() | WorkoutLog', this.workoutLog);
       this.firebase.addWorkoutLog(this.workoutLog);
-      this.router.navigateByUrl('/tabs/tabs/tab2');
+      this.router.navigateByUrl('/tab2',{replaceUrl: true});
   }
 
   loadWorkoutNames(){

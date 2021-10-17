@@ -8,7 +8,7 @@
 
 <ion-content  class="ion-padding">
 
-<ion-list>
+<ion-list  *ngIf="profileData">
   <ion-item>
     <ion-label>Surname</ion-label>
     <ion-input [(ngModel)]="this.profileData.surname"></ion-input>
@@ -69,7 +69,7 @@
 
 
   <ion-button expand="" color="primary" (click)="updateProfile()">Update</ion-button>
-  <ion-button expand="" color='danger'>Logout</ion-button>
+  <ion-button expand="" color='danger' (click)="logout()">Logout</ion-button>
 
 
 </ion-content>

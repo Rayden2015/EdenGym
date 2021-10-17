@@ -49,7 +49,7 @@ export class FirebaseService {
   }
 
   addWorkoutLog(workoutLog){
-    //workoutLog.userId = this.userId;
+    workoutLog.userId = this.userId;
     console.log('Firbase Service | WorkoutLog', workoutLog);
     return this.firestore.collection(`WorkoutLogs`).add(workoutLog).then(
       () => console.log('WorkoutLog added succesfully')
@@ -59,7 +59,7 @@ export class FirebaseService {
   }
 
   loadWorkoutLogs(){
-    return this.firestore.collection('WorkoutLogs').valueChanges();
+    return this.firestore.collection('WorkoutLogs',ref => ref.where('userId','==', this.userId)).valueChanges();
   }
 
   loadWorkoutNames(){
