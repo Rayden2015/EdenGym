@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>New Assessment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Date</ion-label>
+      <ion-datetime [(ngModel)]="this.assessment.date"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Instructor</ion-label>
+      <ion-input [(ngModel)]="this.assessment.instructor"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Heart Rate (Before Training)</ion-label>
+      <ion-input [(ngModel)]="this.assessment.heartRate"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Weight (kg)</ion-label>
+      <ion-input [(ngModel)]="this.assessment.weight"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Body-Fat (%)</ion-label>
+      <ion-input [(ngModel)]="this.assessment.bodyFat"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Body-Fat (kg)</ion-label>
+      <ion-input [(ngModel)]="this.assessment.bodyFatKg"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Muscle Mass (%)</ion-label>
+      <ion-input [(ngModel)]="this.assessment.muscleMass"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Resting Metabolism (RM)</ion-label>
+      <ion-input [(ngModel)]="this.assessment.restingMetabolism"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Visceral Fat</ion-label>
+      <ion-input [(ngModel)]="this.assessment.visceralFat"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Waistline </ion-label>
+      <ion-input [(ngModel)]="this.assessment.waistline"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Chest</ion-label>
+      <ion-input [(ngModel)]="this.assessment.chest"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Right Thigh</ion-label>
+      <ion-input [(ngModel)]="this.assessment.rightThigh"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Left Thigh</ion-label>
+      <ion-input [(ngModel)]="this.assessment.leftThigh"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Right Upper Arm</ion-label>
+      <ion-input [(ngModel)]="this.assessment.rightUppperArm"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Left Upper Arm</ion-label>
+      <ion-input [(ngModel)]="this.assessment.leftUpperArm"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Waistline for WHR</ion-label>
+      <ion-input [(ngModel)]="this.assessment.waistlineWHR"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-button (click)="addAssessment()">Save</ion-button>
+
+   <ion-fab vertical="center" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['/tabs/tabs/tab3']" color="danger">
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

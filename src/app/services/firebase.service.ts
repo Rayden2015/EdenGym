@@ -65,4 +65,13 @@ export class FirebaseService {
   loadWorkoutNames(){
     return this.firestore.collection('workoutNames').valueChanges();
   }
+
+  addAssessment(assessment){
+    assessment.userId = this.userId;
+    return this.firestore.collection('assessments').add(assessment);
+  }
+
+  loadAssessments(){
+    return this.firestore.collection('assessments', ref => ref.where('userId','==', this.userId)).valueChanges();
+  }
 }

@@ -109,12 +109,12 @@ export class AuthenticationService {
   SignOut() {
     return this.ngFireAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['login']);
+      this.router.navigateByUrl('/login',{replaceUrl: true});
     });
   }
 
   getAuthId(){
-    return this.ngFireAuth.authState.subscribe()
+    return this.ngFireAuth.authState.subscribe();
   }
 
 }

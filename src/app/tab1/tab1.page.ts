@@ -12,13 +12,13 @@ import { Router } from '@angular/router';
 interface ProfileData {
   surname: string;
   firstname: string;
-  othernames: string;
+  othernames?: string;
   date_of_birth: string;
   mobile_number: string;
   whatsapp_number: string;
   email_address: string;
   profession: string;
-  company: string;
+  company?: string;
   trained_in_gym: string;
   fitness_goal: string;
 }
