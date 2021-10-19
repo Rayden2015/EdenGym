@@ -36,7 +36,8 @@ import { AngularFirePerformanceModule} from '@angular/fire/compat/performance';
     IonicStorageModule.forRoot(),
     CommonModule
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, AngularFirestoreModule, AngularFirePerformanceModule],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    AngularFirestoreModule, AngularFirePerformanceModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

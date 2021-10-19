@@ -59,11 +59,11 @@ export class FirebaseService {
   }
 
   loadWorkoutLogs(){
-    return this.firestore.collection('WorkoutLogs',ref => ref.where('userId','==', this.userId)).valueChanges();
+    return this.firestore.collection('WorkoutLogs',ref => ref.where('userId','==', this.userId).orderBy('date','desc')).valueChanges();
   }
 
   loadWorkoutNames(){
-    return this.firestore.collection('workoutNames').valueChanges();
+    return this.firestore.collection('workoutNames', ref => ref.orderBy('name','desc')).valueChanges();
   }
 
   addAssessment(assessment){
@@ -72,6 +72,6 @@ export class FirebaseService {
   }
 
   loadAssessments(){
-    return this.firestore.collection('assessments', ref => ref.where('userId','==', this.userId)).valueChanges();
+    return this.firestore.collection('assessments', ref => ref.where('userId','==', this.userId).orderBy('date','desc')).valueChanges();
   }
 }

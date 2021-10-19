@@ -33,7 +33,7 @@ const routes: Routes = [
     pathMatch: 'full'
   }
 ];
-@NgModule({
+  @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],

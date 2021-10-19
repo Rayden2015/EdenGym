@@ -18,6 +18,11 @@ export class LoginPage implements OnInit {
   ) {}
 
   async ngOnInit() {
+    if(localStorage.getItem('user').length !== 0){
+      this.router.navigateByUrl('tabs');
+    }else{
+      console.log('user not logged in');
+    }
 
   }
 

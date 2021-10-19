@@ -33,7 +33,7 @@ export class DashboardPage implements OnInit {
   addWorkoutLog(){
       console.log('AddWotkoutPage | addworkoutLog() | WorkoutLog', this.workoutLog);
       this.firebase.addWorkoutLog(this.workoutLog);
-      this.router.navigateByUrl('/tab2',{replaceUrl: true});
+      this.router.navigateByUrl('/tabs/tabs/tab2',{replaceUrl: true});
   }
 
   loadWorkoutNames(){
