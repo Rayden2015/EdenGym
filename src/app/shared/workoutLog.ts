@@ -7,5 +7,7 @@ export interface WorkoutLog{
   sets: number;
   endTime: string;
   instructor: string;
+  comments: string;
+  howDifficult: string;
   userId: string;
 }

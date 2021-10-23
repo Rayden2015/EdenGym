@@ -21,16 +21,16 @@
       </ion-select>
     </ion-item>
     <ion-item>
-      <ion-label>Weight</ion-label>
-      <ion-input type="text" [(ngModel)]="this.workoutLog.weight" ></ion-input>
+      <ion-label>Weight (kg)</ion-label>
+      <ion-input type="number" [(ngModel)]="this.workoutLog.weight" [min]="5"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Repitions</ion-label>
-      <ion-input type="number" [(ngModel)]="this.workoutLog.repititions"></ion-input>
+      <ion-input type="number" [(ngModel)]="this.workoutLog.repititions" [min]="1"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Sets</ion-label>
-      <ion-input type="number" [(ngModel)]="this.workoutLog.sets"></ion-input>
+      <ion-input type="number" [(ngModel)]="this.workoutLog.sets" [value]="1" [min]="1"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>EndTime</ion-label>
@@ -39,6 +39,37 @@
     <ion-item>
       <ion-label>Instructor</ion-label>
       <ion-input type="text" [(ngModel)]="this.workoutLog.instructor" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>How Difficult was the Workout ?</ion-label>
+    </ion-item>
+    <ion-item>
+        <ion-radio-group value="No" [(ngModel)]="this.workoutLog.howDifficult" >
+          <ion-item>
+            <ion-label>Very Easy</ion-label>
+            <ion-radio slot="start"  value="Very Easy"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Easy</ion-label>
+            <ion-radio slot="start"  value="Easy"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Normal</ion-label>
+            <ion-radio slot="start"  value="Normal"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Difficult</ion-label>
+            <ion-radio slot="start"  value="Difficult"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Very Difficult</ion-label>
+            <ion-radio slot="start"  value="Very Difficult"></ion-radio>
+          </ion-item>
+          </ion-radio-group>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Comments</ion-label>
+      <ion-textarea [(ngModel)]="this.workoutLog.comments"></ion-textarea>
     </ion-item>
   </ion-list>
 

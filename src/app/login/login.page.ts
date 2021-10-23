@@ -15,14 +15,16 @@ export class LoginPage implements OnInit {
     public authService: AuthenticationService,
     public router: Router,
     public utility: UtilitiesService
-  ) {}
-
-  async ngOnInit() {
-    if(localStorage.getItem('user').length !== 0){
-      this.router.navigateByUrl('tabs');
+  ) {
+    if(localStorage.getItem('user') !== ''){
+      this.router.navigateByUrl('/tabs/tabs/tab2',{replaceUrl: true});
     }else{
       console.log('user not logged in');
     }
+  }
+
+  async ngOnInit() {
+
 
   }
 

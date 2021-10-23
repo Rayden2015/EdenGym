@@ -59,6 +59,8 @@ import './zone-flags';
  */
 import 'zone.js/dist/zone';  // Included with Angular CLI.
 
+import 'first-input-delay'; //Angulare Fire Montiring / Meauring First Input Delay
+
 
 /***************************************************************************************************
  * APPLICATION IMPORTS
