@@ -1,8 +1,8 @@
 {
   "name": "EdenGym",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "version": "1.0.0",
+  "author": "Nurudin Lartey",
+  "homepage": "https://infinixel.com/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -37,7 +37,7 @@
     "@sentry/tracing": "^6.13.3",
     "cordova-plugin-geofence": "^0.7.0",
     "firebase": "^9.0.0",
-    "pwa": "^1.9.7",
+    "pwa": "^1.9.4",
     "rxfire": "^6.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
@@ -55,7 +55,7 @@
     "@angular/compiler-cli": "~12.1.1",
     "@angular/language-service": "~12.0.1",
     "@capacitor/cli": "3.2.3",
-    "@ionic/angular-toolkit": "^4.0.0",
+    "@ionic/angular-toolkit": "^2.1.2",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
@@ -65,10 +65,10 @@
     "eslint-plugin-import": "2.22.1",
     "eslint-plugin-jsdoc": "30.7.6",
     "eslint-plugin-prefer-arrow": "1.2.2",
-    "firebase-tools": "^9.0.0",
+    "firebase-tools": "^6.11.0",
     "first-input-delay": "^0.1.3",
     "fuzzy": "^0.1.3",
-    "inquirer": "^6.2.2",
+    "inquirer": "^8.2.0",
     "inquirer-autocomplete-prompt": "^1.0.1",
     "jasmine-core": "~3.8.0",
     "jasmine-spec-reporter": "~5.0.0",
@@ -84,5 +84,5 @@
     "ts-node": "~8.3.0",
     "typescript": "~4.2.4"
   },
-  "description": "An Ionic project"
+  "description": "EdenGym App"
 }
