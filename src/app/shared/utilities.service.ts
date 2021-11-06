@@ -25,7 +25,6 @@ export class UtilitiesService {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: header,
-      subHeader: 'Subtitle',
       message: message,
       buttons: ['OK']
     });
@@ -47,6 +46,7 @@ export class UtilitiesService {
     const { role, data } = await loading.onDidDismiss();
     console.log('Loading dismissed!');
   }
+
 
 
 

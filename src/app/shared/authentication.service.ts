@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { NgZone } from '@angular/core';
+import { first } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -19,16 +20,7 @@ export class AuthenticationService {
     public router: Router,
     public ngZone: NgZone
   ) {
-    this.ngFireAuth.authState.subscribe(user => {
-      if (user) {
-        this.userData = user;
-        localStorage.setItem('user', JSON.stringify(this.userData));
-        JSON.parse(localStorage.getItem('user'));
-      } else {
-        localStorage.setItem('user', null);
-        JSON.parse(localStorage.getItem('user'));
-      }
-    });
+   
   }
 
 
@@ -61,9 +53,11 @@ export class AuthenticationService {
   }
 
   // Returns true when user is looged in
-  get isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem('user'));
-    return (user !== null && user.emailVerified !== false) ? true : false;
+  isLoggedIn() {
+    // const user = JSON.parse(localStorage.getItem('user'));
+    // return (user !== null && user.emailVerified !== false) ? true : false;
+
+      return this.ngFireAuth.authState.pipe(first()).toPromise();
   }
 
   // Returns true when user's email is verified
@@ -82,11 +76,12 @@ export class AuthenticationService {
     return this.ngFireAuth.signInWithPopup(provider)
     .then((result) => {
        this.ngZone.run(() => {
-          this.router.navigate(['/tabs/tabs/']);
+          this.router.navigate(['tabs']);
         });
       this.SetUserData(result.user);
     }).catch((error) => {
-      window.alert(error);
+      console.error('Authentication Service | Authlogin() | error : ', error);
+      window.alert(error.message);
     });
   }
 
@@ -107,10 +102,13 @@ export class AuthenticationService {
 
   // Sign-out
   SignOut() {
+    console.log('Authentication Service | SignOut()');
     return this.ngFireAuth.signOut().then(() => {
       localStorage.removeItem('user');
       localStorage.clear();
-      this.router.navigateByUrl('/login',{replaceUrl: true});
+      this.router.navigateByUrl('/login', {replaceUrl: true});
+    }).catch((e) => {
+      console.error('SignOut | error ', e.message);
     });
   }
 

@@ -74,4 +74,8 @@ export class FirebaseService {
   loadAssessments(){
     return this.firestore.collection('assessments', ref => ref.where('userId','==', this.userId).orderBy('date','desc')).valueChanges();
   }
+
+  loadInstructors(){
+    return this.firestore.collection('instructors', ref =>ref.orderBy('firstName','asc')).valueChanges();
+  }
 }

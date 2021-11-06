@@ -15,14 +15,21 @@ import { WorkoutLog } from '../shared/workoutLog';
 export class DashboardPage implements OnInit {
   workoutLog: WorkoutLog;
   workoutNames: any;
+  instructorNames: any;
 
-  constructor(public modalController: ModalController, private firebase: FirebaseService, private router: Router, private utilities: UtilitiesService) {
+  constructor(
+    public modalController: ModalController,
+    private firebase: FirebaseService,
+    private router: Router,
+    private utilities: UtilitiesService
+    ) {
        //workout:'Pilatest Tets'
        this.workoutLog = {} as WorkoutLog;
   }
 
   ngOnInit() {
     this.loadWorkoutNames();
+    this.loadInstructors();
     //this.workoutLog.date = Date.now().toString();
   }
 
@@ -52,6 +59,13 @@ export class DashboardPage implements OnInit {
     this.firebase.loadWorkoutNames().subscribe((data) => {
       console.log('WorkoutNames', data);
       this.workoutNames = data;
+    });
+  }
+
+  loadInstructors(){
+    this.firebase.loadInstructors().subscribe((data) => {
+      console.log('Add Workout page | loadInstructors() | ', data);
+      this.instructorNames = data;
     });
   }
 

@@ -2,6 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../shared/authentication.service';
 import { UtilitiesService } from '../shared/utilities.service';
+import { Tab1Page } from '../tab1/tab1.page';
 
 @Component({
   selector: 'app-login',
@@ -16,16 +17,22 @@ export class LoginPage implements OnInit {
     public router: Router,
     public utility: UtilitiesService
   ) {
-    if(localStorage.getItem('user') !== ''){
-      this.router.navigateByUrl('/tabs/tabs/tab2',{replaceUrl: true});
-    }else{
-      console.log('user not logged in');
-    }
   }
 
   async ngOnInit() {
+    // if(localStorage.getItem('user') !== '' || localStorage.getItem('user') !== null){
+    //   this.router.navigateByUrl('/tabs/tabs/tab1',{replaceUrl: true});
+    //   console.log('Login Page | not signed in');
+    // }else{
+    //   console.log('user not logged in');
+    // }
 
-
+    const isLoggedIn = await this.authService.isLoggedIn();
+    if(isLoggedIn){
+      this.router.navigateByUrl('/tabs', {replaceUrl: true});
+    }else{
+      return;
+    }
   }
 
   logIn(email, password) {

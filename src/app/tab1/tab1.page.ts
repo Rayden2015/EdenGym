@@ -102,7 +102,6 @@ updateProfile() {
 
   logout(){
     this.auth.SignOut();
-    this.router.navigateByUrl('login');
   }
 
 }

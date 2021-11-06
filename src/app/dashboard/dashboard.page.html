@@ -11,11 +11,11 @@
       <ion-datetime [(ngModel)]="this.workoutLog.date" [value]="this.workoutLog.date"></ion-datetime>
     </ion-item>
     <ion-item>
-      <ion-label>Start Time</ion-label>
+      <ion-label>Time</ion-label>
       <ion-datetime [(ngModel)]="this.workoutLog.startTime" display-format="HH:mm:ss" picker-format="HH:mm" ></ion-datetime>
     </ion-item>
     <ion-item>
-      <ion-label>Workout</ion-label>
+      <ion-label position="floating">Workout</ion-label>
       <ion-select [(ngModel)]="this.workoutLog.workout">
         <ion-select-option *ngFor="let workoutName of this.workoutNames"  value="{{this.workoutName.name}}">{{this.workoutName.name}}</ion-select-option>
       </ion-select>
@@ -32,40 +32,29 @@
       <ion-label>Sets</ion-label>
       <ion-input type="number" [(ngModel)]="this.workoutLog.sets" [value]="1" [min]="1"></ion-input>
     </ion-item>
-    <ion-item>
+    <!-- <ion-item>
       <ion-label>EndTime</ion-label>
       <ion-datetime [(ngModel)]="this.workoutLog.endTime" display-format="HH:mm:ss" picker-format="HH:mm"></ion-datetime>
-    </ion-item>
-    <ion-item>
+    </ion-item> -->
+    <!-- <ion-item>
       <ion-label>Instructor</ion-label>
       <ion-input type="text" [(ngModel)]="this.workoutLog.instructor" ></ion-input>
+    </ion-item> -->
+    <ion-item>
+      <ion-label position="floating">Instructor</ion-label>
+      <ion-select [(ngModel)]="this.workoutLog.instructor">
+        <ion-select-option *ngFor="let instructor of this.instructorNames"  value="{{this.instructor.firstName}} {{this.instructor.lastName}}">{{this.instructor.firstName + " "+ this.instructor.lastName}}</ion-select-option>
+      </ion-select>
     </ion-item>
     <ion-item>
-      <ion-label>How Difficult was the Workout ?</ion-label>
-    </ion-item>
-    <ion-item>
-        <ion-radio-group value="No" [(ngModel)]="this.workoutLog.howDifficult" >
-          <ion-item>
-            <ion-label>Very Easy</ion-label>
-            <ion-radio slot="start"  value="Very Easy"></ion-radio>
-          </ion-item>
-          <ion-item>
-            <ion-label>Easy</ion-label>
-            <ion-radio slot="start"  value="Easy"></ion-radio>
-          </ion-item>
-          <ion-item>
-            <ion-label>Normal</ion-label>
-            <ion-radio slot="start"  value="Normal"></ion-radio>
-          </ion-item>
-          <ion-item>
-            <ion-label>Difficult</ion-label>
-            <ion-radio slot="start"  value="Difficult"></ion-radio>
-          </ion-item>
-          <ion-item>
-            <ion-label>Very Difficult</ion-label>
-            <ion-radio slot="start"  value="Very Difficult"></ion-radio>
-          </ion-item>
-          </ion-radio-group>
+        <ion-label position="floating">How Difficult was the workout?</ion-label>
+          <ion-select [(ngModel)]="this.workoutLog.howDifficult">
+            <ion-select-option>Very Easy</ion-select-option>
+            <ion-select-option>Easy</ion-select-option>
+            <ion-select-option>Normal</ion-select-option>
+            <ion-select-option>Difficult</ion-select-option>
+            <ion-select-option>Very Difficult</ion-select-option>
+          </ion-select>
     </ion-item>
     <ion-item>
       <ion-label position="stacked">Comments</ion-label>
