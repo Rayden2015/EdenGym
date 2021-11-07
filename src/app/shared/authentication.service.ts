@@ -20,7 +20,7 @@ export class AuthenticationService {
     public router: Router,
     public ngZone: NgZone
   ) {
-   
+
   }
 
 
@@ -54,9 +54,6 @@ export class AuthenticationService {
 
   // Returns true when user is looged in
   isLoggedIn() {
-    // const user = JSON.parse(localStorage.getItem('user'));
-    // return (user !== null && user.emailVerified !== false) ? true : false;
-
       return this.ngFireAuth.authState.pipe(first()).toPromise();
   }
 
@@ -76,9 +73,11 @@ export class AuthenticationService {
     return this.ngFireAuth.signInWithPopup(provider)
     .then((result) => {
        this.ngZone.run(() => {
-          this.router.navigate(['tabs']);
+         console.log('Authentication Serivce | AuthLogin| login succesful');
+          this.router.navigateByUrl('/tabs/tabs/tab1');
         });
       this.SetUserData(result.user);
+      localStorage.setItem('user', result.user.uid);
     }).catch((error) => {
       console.error('Authentication Service | Authlogin() | error : ', error);
       window.alert(error.message);

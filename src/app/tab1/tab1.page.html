@@ -10,44 +10,44 @@
 
 <ion-list  *ngIf="profileData">
   <ion-item>
-    <ion-label>Surname</ion-label>
+    <ion-label position="floating">Surname</ion-label>
     <ion-input [(ngModel)]="this.profileData.surname"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label>First Name</ion-label>
+    <ion-label position="floating">First Name</ion-label>
     <ion-input [(ngModel)]="this.profileData.firstname"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label>Other Names</ion-label>
+    <ion-label position="floating">Other Names</ion-label>
     <ion-input [(ngModel)]="this.profileData.othernames"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label>Date of Birth</ion-label>
+    <ion-label position="floating">Date of Birth</ion-label>
     <ion-datetime [(ngModel)]="this.profileData.date_of_birth"></ion-datetime>
   </ion-item>
   <ion-item>
-    <ion-label>Mobile Number</ion-label>
+    <ion-label position="floating">Mobile Number</ion-label>
     <ion-input type="tel" [(ngModel)]="this.profileData.mobile_number"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label>Whatsapp Number</ion-label>
+    <ion-label position="floating">Whatsapp Number</ion-label>
     <ion-input type="tel" [(ngModel)]="this.profileData.whatsapp_number"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label>Email Address</ion-label>
+    <ion-label position="floating">Email Address</ion-label>
     <ion-input type="email" [(ngModel)]="this.profileData.email_address"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label>Profession</ion-label>
+    <ion-label position="floating">Profession</ion-label>
     <ion-input type="text" [(ngModel)]="this.profileData.profession"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label>Company</ion-label>
+    <ion-label position="floating">Company</ion-label>
     <ion-input type="text" [(ngModel)]="this.profileData.company"></ion-input>
   </ion-item>
   <ion-item>
     <!-- <ion-label>Have you ever trained in a gym?</ion-label> -->
-    <ion-radio-group value="No" [(ngModel)]="this.profileData.trained_in_gym" >
+    <ion-radio-group value="No" [(ngModel)]="this.profileData.trained_in_gym" position="floating" >
       <ion-list-header>
       <ion-label>Have you ever trained in a gym?</ion-label>
       </ion-list-header>

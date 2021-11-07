@@ -60,8 +60,7 @@ export class Tab1Page {
     await loading.present();
 
     //Getting User uid from Local Storage
-    this.user = JSON.parse(localStorage.getItem('user'));
-    const userId = this.user.uid;
+    const userId = localStorage.getItem('user');
     console.log('User id', userId );
 
     //Loading Login Profile from Firebase
@@ -88,9 +87,6 @@ export class Tab1Page {
   }
 
 updateProfile() {
-    const userid = localStorage.getItem(this.user.id);
-    console.log(userid);
-
     try {
       this.firebaseService.updateProfile(this.profileData);
       this.utility.presentAlert('Proifle', 'Profile Updated Successfully');

@@ -20,18 +20,11 @@ export class LoginPage implements OnInit {
   }
 
   async ngOnInit() {
-    // if(localStorage.getItem('user') !== '' || localStorage.getItem('user') !== null){
-    //   this.router.navigateByUrl('/tabs/tabs/tab1',{replaceUrl: true});
-    //   console.log('Login Page | not signed in');
-    // }else{
-    //   console.log('user not logged in');
-    // }
-
     const isLoggedIn = await this.authService.isLoggedIn();
-    if(isLoggedIn){
-      this.router.navigateByUrl('/tabs', {replaceUrl: true});
+    if(isLoggedIn ){
+      //this.router.navigateByUrl('/tabs/tabs/tab1', {replaceUrl: true});
     }else{
-      return;
+      return true;
     }
   }
 

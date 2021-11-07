@@ -11,12 +11,14 @@ import { Assessments } from '../shared/assements';
 export class AddAssessmentPage implements OnInit {
   assessment: Assessments;
   assessments: any;
+  instructorNames: any;
 
   constructor(private firebase: FirebaseService, private router: Router) {
     this.assessment = {} as Assessments;
   }
 
   ngOnInit() {
+    this.loadInstructors();
 
   }
 
@@ -29,8 +31,12 @@ export class AddAssessmentPage implements OnInit {
     ).catch((e) => console.error(e.message));
   }
 
-  loadAssessments(){
 
+  loadInstructors(){
+    this.firebase.loadInstructors().subscribe((data) => {
+      console.log('Add Assessment Page | loadInstructors() | ', data);
+      this.instructorNames = data;
+    });
   }
 
 }

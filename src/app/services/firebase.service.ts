@@ -14,8 +14,7 @@ export class FirebaseService {
   constructor(
     private firestore: AngularFirestore
   ) {
-    this.user = JSON.parse(localStorage.getItem('user'));
-    this.userId = this.user.uid;
+    this.userId = localStorage.getItem('user');
     console.log('User', this.userId );
     //console.log('Userid',userId);
   }
@@ -76,6 +75,7 @@ export class FirebaseService {
   }
 
   loadInstructors(){
+    console.log('Firebase Service | loadInstructors() | ');
     return this.firestore.collection('instructors', ref =>ref.orderBy('firstName','asc')).valueChanges();
   }
 }
