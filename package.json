@@ -36,6 +36,7 @@
     "@sentry/integrations": "^6.13.3",
     "@sentry/tracing": "^6.13.3",
     "cordova-plugin-geofence": "^0.7.0",
+    "cordova-plugin-ionic": "5.5.1",
     "firebase": "^9.0.0",
     "pwa": "^1.9.4",
     "rxfire": "^6.0.0",
