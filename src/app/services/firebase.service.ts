@@ -62,7 +62,7 @@ export class FirebaseService {
   }
 
   loadWorkoutNames(){
-    return this.firestore.collection('workoutNames', ref => ref.orderBy('name','desc')).valueChanges();
+    return this.firestore.collection('workoutNames', ref => ref.orderBy('name','asc')).valueChanges();
   }
 
   addAssessment(assessment){

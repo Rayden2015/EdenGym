@@ -25,12 +25,12 @@ export class DashboardPage implements OnInit {
     ) {
        //workout:'Pilatest Tets'
        this.workoutLog = {} as WorkoutLog;
+       this.workoutLog.sets = 1;
   }
 
   ngOnInit() {
     this.loadWorkoutNames();
     this.loadInstructors();
-    //this.workoutLog.date = Date.now().toString();
   }
 
 

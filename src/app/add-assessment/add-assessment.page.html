@@ -82,11 +82,15 @@
     </ion-item>
   </ion-list>
 
-  <ion-button (click)="addAssessment()">Save</ion-button>
-
-   <ion-fab vertical="center" horizontal="end" slot="fixed">
+   <ion-fab vertical="top" horizontal="end" slot="fixed">
     <ion-fab-button [routerLink]="['/tabs/tabs/tab3']" color="danger">
       <ion-icon name="close-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab vertical="center" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addAssessment()" color="primary">
+      <ion-icon name="save-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 </ion-content>

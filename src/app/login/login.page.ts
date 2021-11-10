@@ -22,7 +22,7 @@ export class LoginPage implements OnInit {
   async ngOnInit() {
     const isLoggedIn = await this.authService.isLoggedIn();
     if(isLoggedIn ){
-      //this.router.navigateByUrl('/tabs/tabs/tab1', {replaceUrl: true});
+      this.router.navigateByUrl('/tabs/tabs/tab1', {replaceUrl: true});
     }else{
       return true;
     }
