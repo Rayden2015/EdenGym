@@ -25,25 +25,24 @@ import { AngularFirePerformanceModule} from '@angular/fire/compat/performance';
 
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, ReactiveFormsModule,FormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule,
-    AngularFireDatabaseModule,
-    AngularFirestoreModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: environment.production,
-      // Register the ServiceWorker as soon as the app is stable
-      // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
-    }),
-    IonicStorageModule.forRoot(),
-    CommonModule
-  ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    AngularFirestoreModule, AngularFirePerformanceModule],
-  bootstrap: [AppComponent],
+    declarations: [AppComponent],
+    imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, ReactiveFormsModule, FormsModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFireAuthModule,
+        AngularFireDatabaseModule,
+        AngularFirestoreModule,
+        ServiceWorkerModule.register('ngsw-worker.js', {
+            enabled: environment.production,
+            // Register the ServiceWorker as soon as the app is stable
+            // or after 30 seconds (whichever comes first).
+            registrationStrategy: 'registerWhenStable:30000'
+        }),
+        IonicStorageModule.forRoot(),
+        CommonModule
+    ],
+    providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+        AngularFirestoreModule, AngularFirePerformanceModule],
+    bootstrap: [AppComponent]
 })
 
 
