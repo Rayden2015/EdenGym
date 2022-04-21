@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { CommonModule } from '@angular/common';
 import { AngularFirePerformanceModule} from '@angular/fire/compat/performance';
+import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
 
 
 // platformBrowserDynamic()

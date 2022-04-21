@@ -2,5 +2,18 @@
 	"appId": "io.nurudin.edengymapp",
 	"appName": "EdenGym",
 	"webDir": "www",
-	"bundledWebRuntime": false
+	"bundledWebRuntime": false,
+	"plugins": {
+		"GoogleAuth": {
+			"scopes": [
+				"profile",
+				"email"
+			],
+			"serverClientId": "88370238211-jnvr2emfi92uj7ds6l85q268pck2mp2q.apps.googleusercontent.com",
+			"forceCodeForRefreshToken": true
+		}
+	},
+	"server": {
+		"url": "http://172.27.50.92:8101"
+	}
 }

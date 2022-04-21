@@ -29,17 +29,5 @@
   </form> -->
 
 
-  <form>
-    <ion-row>
-      <ion-col>
-        <ion-button
-         type="submit"
-         color="danger"
-         (click)="authService.GoogleAuth()"
-         expand="block">
-           Login with Google
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </form>
+  <ion-button color="danger" (click)="signIn()" expand="block"> Login with Google</ion-button>
 </ion-content>

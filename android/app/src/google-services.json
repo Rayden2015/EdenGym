@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "88370238211",
+    "firebase_url": "https://edengym-7b791-default-rtdb.firebaseio.com",
+    "project_id": "edengym-7b791",
+    "storage_bucket": "edengym-7b791.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:88370238211:android:b9b84545dc7c6281d68f36",
+        "android_client_info": {
+          "package_name": "io.nurudin.edengymapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "88370238211-jnvr2emfi92uj7ds6l85q268pck2mp2q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXlUE3eMmn-U6qHsBXFogRBMF7WfHJWf4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "88370238211-gjlj53hjm8at35r5ukq21tjfhmris2u1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "88370238211-m5nboi9ges383ntmflrfg4kt2at77bj2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "io.nurudin.edengymapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

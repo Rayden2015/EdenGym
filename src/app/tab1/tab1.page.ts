@@ -65,7 +65,7 @@ export class Tab1Page {
 
     //Loading Login Profile from Firebase
 		this.firebaseService.readLoggedInProfile(userId).subscribe(data => {
-      console.log('Login Profile :',data);
+      console.log('Login Profile :', data);
       this.profileData.company = data["company"];
       this.profileData.firstname = data["firstname"];
       this.profileData.surname = data["surname"];
